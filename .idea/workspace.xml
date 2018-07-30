@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e7b1fc9-798c-4fca-9003-c39f9d6469d0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web.config" afterPath="$PROJECT_DIR$/web.config" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.deployment_old" afterPath="$PROJECT_DIR$/.deployment" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/deploy_old.cmd" afterPath="$PROJECT_DIR$/deploy.cmd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.deployment" afterPath="$PROJECT_DIR$/.deployment" />
     </list>
     <ignored path="flask-postgresql-app-master.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,11 +40,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".deployment" pinned="false" current-in-tab="false">
+      <file leaf-file-name=".deployment" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.deployment">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.017671518">
+              <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -63,10 +60,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="web.config" pinned="false" current-in-tab="true">
+      <file leaf-file-name="web.config" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web.config">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.14545454">
+            <state vertical-scroll-proportion="-5.037037">
               <caret line="8" column="49" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
               <folding />
             </state>
@@ -96,6 +93,7 @@
         <option value="$PROJECT_DIR$/app/app.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/web.config" />
+        <option value="$PROJECT_DIR$/.deployment" />
       </list>
     </option>
   </component>
@@ -483,18 +481,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.deployment">
+    <entry file="file://$PROJECT_DIR$/web.config">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        <state vertical-scroll-proportion="-5.037037">
+          <caret line="8" column="49" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web.config">
+    <entry file="file://$PROJECT_DIR$/.deployment">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14545454">
-          <caret line="8" column="49" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
+        <state vertical-scroll-proportion="0.017671518">
+          <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
           <folding />
         </state>
       </provider>
