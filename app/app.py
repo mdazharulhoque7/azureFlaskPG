@@ -9,8 +9,8 @@ APP.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 APP.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://%s:%s@%s/%s' % (
     # ARGS.dbuser, ARGS.dbpass, ARGS.dbhost, ARGS.dbname
-    os.environ['DBUSER'], os.environ['DBPASS'], os.environ['DBHOST'], os.environ['DBNAME']
-)
+    'manager@contextiapgs', 'supersecretpass', 'contextiapgs.postgres.database.azure.com', 'eventregistration'
+) + '?sslmode=require'
 
 # initialize the database connection
 DB = SQLAlchemy(APP)
