@@ -25,10 +25,10 @@ from models import *
 def view_registered_guests():
     return APP.send_static_file('dist/index.html')
 
-# @APP.route('/')
-# def view_registered_guests():
-#     guests = Guest.query.all()
-#     return render_template('guest_list.html', guests=guests)
+@APP.route('/guest')
+def view_registered_guests():
+    guests = Guest.query.all()
+    return render_template('guest_list.html', guests=guests)
 #
 
 @APP.route('/register', methods = ['GET'])
