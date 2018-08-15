@@ -73,10 +73,10 @@ def extensions(app_instance):
 def register_blueprint(app_instance):
     from blueprints import default_blueprint
     # from app.blueprints.api.presence_data import presence_data_blueprint
-    # from app.blueprints.api.presence_summary import presence_summary_blueprint
+    from blueprints.api.presence_summary import presence_summary_blueprint
 
     # app_instance.register_blueprint(presence_data_blueprint, url_prefix='/presence_data')
-    # app_instance.register_blueprint(presence_summary_blueprint, url_prefix='/presence_summary')
+    app_instance.register_blueprint(presence_summary_blueprint, url_prefix='/presence_summary')
     app_instance.register_blueprint(default_blueprint)
 
     return app_instance
