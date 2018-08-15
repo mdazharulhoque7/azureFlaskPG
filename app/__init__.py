@@ -28,8 +28,8 @@ def create_app(settings_override=None):
     ) + '?sslmode=require'
 
 
-    extensions(app_instance)
-    register_blueprint(app_instance)
+    app_instance = extensions(app_instance)
+    app_instance = register_blueprint(app_instance)
     # authentication(app_instance)
     # CORS(app_instance)
 
@@ -68,7 +68,7 @@ def extensions(app_instance):
     # session = flask_scoped_session(session_factory, app_instance)
 
 
-    return None
+    return app_instance
 
 def register_blueprint(app_instance):
     from app.blueprints import default_blueprint
@@ -78,6 +78,8 @@ def register_blueprint(app_instance):
     # app_instance.register_blueprint(presence_data_blueprint, url_prefix='/presence_data')
     # app_instance.register_blueprint(presence_summary_blueprint, url_prefix='/presence_summary')
     app_instance.register_blueprint(default_blueprint)
+
+    return app_instance
 
 
 
