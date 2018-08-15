@@ -11,13 +11,21 @@ def create_app(settings_override=None):
     :param settings_override: Override settings
     :return: Flask app
     """
-    app_instance = Flask(__name__, instance_relative_config=True, static_url_path='', static_folder="static")
+    # app_instance = Flask(__name__, instance_relative_config=True, static_url_path='', static_folder="static")
+    #
+    # app_instance.config.from_object('config.settings')
+    # app_instance.config.from_pyfile('settings.py', silent=True)
+    #
+    # if settings_override:
+    #     app_instance.config.update(settings_override)
 
-    app_instance.config.from_object('config.settings')
-    app_instance.config.from_pyfile('settings.py', silent=True)
+    app_instance = Flask(__name__, static_url_path='', static_folder="static")
+    app_instance.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-    if settings_override:
-        app_instance.config.update(settings_override)
+    app_instance.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://%s:%s@%s/%s' % (
+        # ARGS.dbuser, ARGS.dbpass, ARGS.dbhost, ARGS.dbname
+        'manager@contextiapgs', 'supersecretpass', 'contextiapgs.postgres.database.azure.com', 'eventregistration'
+    ) + '?sslmode=require'
 
 
     extensions(app_instance)
