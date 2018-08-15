@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+	<!--[if IE 8]>
+		<html xmlns="http://www.w3.org/1999/xhtml" class="ie8" lang="en-US">
+	<![endif]-->
+	<!--[if !(IE 8) ]><!-->
+		<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+	<!--<![endif]-->
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Log In &lsaquo; Contextia</title>
+        <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='nonNG/styles/main.css') }}">
+{#	<link rel='dns-prefetch' href='//s.w.org' />#}
+{#<link rel='stylesheet' href='http://www.contextiasky.com/wp-admin/load-styles.php?c=1&amp;dir=ltr&amp;load%5B%5D=dashicons,buttons,forms,l10n,login&amp;ver=4.9.7' type='text/css' media='all' />#}
+{#<link rel="stylesheet" type="text/css" href="http://www.contextiasky.com/wp-content/plugins/bm-custom-login/bm-custom-login.css" />#}
+<style>
+    #login {
+        background:url(http://www.contextiasky.com/wp-content/uploads/2018/03/contextia2login.png) top center no-repeat;
+        border-radius: 5px;
+        box-shadow: rgba(0,0,0,0.7) 0 4px 10px -1px;
+        padding: 0 0 20px 0;
+        margin: 7em auto 0 auto;
+        width: 320px;
+    }
+        #login,
+        #login label {
+            color:#333333;
+        }
+
+        html {
+            background:#ffffff !important;
+        }
+        body.login {
+            background:transparent !important;
+        }
+        .login #login a {
+            color:#21759B !important;
+        }
+        .login #login a:hover {
+            color:#03577d !important;
+        }
+        .submit #wp-submit {
+            background:#21759B;
+            border-color:#00395f;
+            color:#fff			}
+        .submit #wp-submit:hover {
+            background:#03577d;
+        }
+        #login #nav,
+        #login #backtoblog {
+            text-shadow:0 1px 6px #000000;
+        }
+        .has-error{
+            color: #ff3300 !important;
+        }
+
+.login h1 a {
+    color: #444;
+    height: 84px;
+    font-size: 20px;
+    line-height: 1.3em;
+    margin: 0 auto 25px;
+    padding: 0;
+    width: 84px;
+    text-indent: -9999px;
+    outline: 0;
+    display: block;
+}
+#login form p {
+    margin-bottom: 0;
+}
+p {
+    line-height: 1.5;
+}
+input, select, textarea {
+    font-size: 14px;
+    border-radius: 0;
+}
+input[type=text], input[type=search], input[type=radio], input[type=tel], input[type=time], input[type=url], input[type=week], input[type=password], input[type=checkbox], input[type=color], input[type=date], input[type=datetime], input[type=datetime-local], input[type=email], input[type=month], input[type=number], select, textarea {
+    border: 1px solid #ddd;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.07);
+    background-color: #fff;
+    color: #32373c;
+    outline: 0;
+    height: 32px;
+}
+input[type=text], input[type=password]:focus {
+    border-color: #21759B;
+}
+.login form .input, .login input[type=text] {
+    font-size: 24px;
+    width: 100%;
+    padding: 3px;
+    margin: 2px 6px 1px 0;
+}
+.login form .input, .login form input[type=checkbox], .login input[type=text] {
+    background: #fbfbfb;
+}
+.wp-core-ui .button, .wp-core-ui .button-primary, .wp-core-ui .button-secondary {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 13px;
+    line-height: 26px;
+    height: 28px;
+    margin: 0;
+    padding: 0 10px 1px;
+    cursor: pointer;
+    border-width: 1px;
+    border-style: solid;
+    -webkit-appearance: none;
+    border-radius: 3px;
+    white-space: nowrap;
+    box-sizing: border-box;
+    font-size: 14px;
+    padding: 6px 14px;
+    line-height: normal;
+    font-size: 14px;
+    vertical-align: middle;
+    height: auto;
+    margin-bottom: 4px;
+}
+
+.login .button-primary {
+    float: right;
+}
+
+.submit #wp-submit {
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.3), 0 1px 0 rgba(0,0,0,.15);
+    text-shadow: none;
+}
+.submit #wp-submit {
+    background: #21759B;
+    border-color: #00395f;
+    color: #fff;
+}
+
+</style>
+        <meta name='robots' content='noindex,follow' />
+	<meta name="viewport" content="width=device-width" />
+		</head>
+	<body class="login login-action-login wp-core-ui  locale-en-us">
+
+		<div id="login">
+            <h1><a href="http://www.contextiasky.com" title="Powered by Televersant" tabindex="-1">Powered by Televersant</a></h1>
+
+<form name="loginform" id="loginform" method="post">
+    {{ form.hidden_tag() }}
+    <p>
+      {% with messages = get_flashed_messages() %}
+         {% if messages %}
+            <label class="has-error" style="display: block; margin: 20px auto; text-align: center">{{ messages[0] }}</label>
+         {% endif %}
+      {% endwith %}
+    </p>
+	<p>
+		<label for="user_login">Username<br />
+		<input type="text" name="identity" id="user_login" class="input" value="" size="20" /></label>
+        {% if form.errors.identity %}
+            <label class="has-error">{{ form.errors.identity[0] }}</label>
+        {% endif %}
+
+	</p>
+    <br />
+	<p>
+		<label for="user_pass">Password<br />
+		<input type="password" name="password" id="user_pass" class="input" value="" size="20" /></label>
+        {% if form.errors.password %}
+            <label class="has-error">{{ form.errors.password[0] }}</label>
+        {% endif %}
+	</p>
+		<p class="forgetmenot"><label for="rememberme"><input name="rememberme" type="checkbox" id="rememberme" value="forever"  /> Remember Me</label></p>
+	<p class="submit">
+		<input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="Log In" />
+		<input type="hidden" name="redirect_to" value="http://www.contextiasky.com/?page_id=272" />
+		<input type="hidden" name="testcookie" value="1" />
+	</p>
+</form>
+
+<p id="nav">
+	<a href="http://www.contextiasky.com/wp-login.php?action=lostpassword">Lost your password?</a>
+</p>
+
+<script type="text/javascript">
+function wp_attempt_focus(){
+setTimeout( function(){ try{
+d = document.getElementById('user_login');
+d.focus();
+d.select();
+} catch(e){}
+}, 200);
+}
+
+wp_attempt_focus();
+if(typeof wpOnload=='function')wpOnload();
+</script>
+
+	<p id="backtoblog"><a href="http://www.contextiasky.com/">&larr; Back to Contextia</a></p>
+		
+	</div>
+
+	
+		<div class="clear"></div>
+	</body>
+	</html>
+	

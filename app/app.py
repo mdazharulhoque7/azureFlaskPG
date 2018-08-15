@@ -4,7 +4,7 @@ from flask import Flask, request, render_template
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 
-APP = Flask(__name__)
+APP = Flask(__name__, static_url_path='', static_folder="static")
 APP.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 APP.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://%s:%s@%s/%s' % (
@@ -23,9 +23,13 @@ from models import *
 
 @APP.route('/')
 def view_registered_guests():
-    guests = Guest.query.all()
-    return render_template('guest_list.html', guests=guests)
+    return APP.send_static_file('dist/index.html')
 
+# @APP.route('/')
+# def view_registered_guests():
+#     guests = Guest.query.all()
+#     return render_template('guest_list.html', guests=guests)
+#
 
 @APP.route('/register', methods = ['GET'])
 def view_registration_form():
