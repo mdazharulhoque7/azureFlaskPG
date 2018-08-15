@@ -1,6 +1,7 @@
 import sys, os  
 from waitress import serve  
 # sys.path.insert(0, './app')
+sys.path.insert(0,os.getcwd())
 from app import create_app
 
 APP = create_app()

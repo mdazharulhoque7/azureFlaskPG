@@ -1,6 +1,6 @@
 from flask import Flask
 from sqlalchemy import MetaData, create_engine
-from app.extensions import (db,
+from extensions import (db,
 
                             )
 
@@ -71,7 +71,7 @@ def extensions(app_instance):
     return app_instance
 
 def register_blueprint(app_instance):
-    from app.blueprints import default_blueprint
+    from blueprints import default_blueprint
     # from app.blueprints.api.presence_data import presence_data_blueprint
     # from app.blueprints.api.presence_summary import presence_summary_blueprint
 
