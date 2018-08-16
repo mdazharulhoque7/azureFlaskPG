@@ -21,6 +21,7 @@ def create_app(settings_override=None):
 
     app_instance = Flask(__name__, static_url_path='', static_folder="static")
     app_instance.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    app_instance.config['SECRET_KEY'] ='contextia##televersent##azsyed'
 
     app_instance.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://%s:%s@%s/%s' % (
         # ARGS.dbuser, ARGS.dbpass, ARGS.dbhost, ARGS.dbname

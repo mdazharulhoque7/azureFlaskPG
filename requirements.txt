@@ -19,4 +19,15 @@ python-editor==1.0.3
 six==1.10.0
 SQLAlchemy==1.1.9
 Werkzeug==0.12.1
-waitress==1.0.1  
+waitress==1.0.1
+flask_sqlalchemy_session
+
+numpy
+flask_cors
+Flask-Login==0.3.2
+Flask-WTF==0.14.2
+WTForms-Alchemy==0.16.6
+WTForms-Components==0.10.3
+
+flask-debugtoolbar==0.10.0
+Flask-Mail==0.9.1

@@ -6,4 +6,5 @@ from app import create_app
 
 APP = create_app()
 
-serve(APP,host="0.0.0.0",port=os.environ["PORT"])  
+# serve(APP,host="0.0.0.0",port=os.environ.get("PORT") or 5000)
+APP.run()
