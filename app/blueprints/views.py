@@ -13,7 +13,7 @@ blueprint = Blueprint('app_home_blueprint', __name__, template_folder='templates
 
 
 @blueprint.route('/')
-# @login_required
+@login_required
 def home():
     return current_app.send_static_file('dist/index.html')
 

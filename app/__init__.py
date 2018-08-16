@@ -103,7 +103,7 @@ def authentication(app_instance):
     :type user_model: SQLAlchemy model
     :return: None
     """
-    login_manager.login_view = 'user.login'
+    login_manager.login_view = 'app_home_blueprint.login'
 
     @login_manager.user_loader
     def load_user(user_id):
