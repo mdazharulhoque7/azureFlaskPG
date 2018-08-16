@@ -1,7 +1,7 @@
 from flask import Flask
 from sqlalchemy import MetaData, create_engine
 from extensions import (db,
-
+                        login_manager
                             )
 
 def create_app(settings_override=None):
@@ -22,16 +22,25 @@ def create_app(settings_override=None):
     app_instance = Flask(__name__, static_url_path='', static_folder="static")
     app_instance.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app_instance.config['SECRET_KEY'] ='contextia##televersent##azsyed'
+    #
+    # app_instance.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://%s:%s@%s/%s' % (
+    #     # ARGS.dbuser, ARGS.dbpass, ARGS.dbhost, ARGS.dbname
+    #     'manager@contextiapgs', 'supersecretpass', 'contextiapgs.postgres.database.azure.com', 'eventregistration'
+    # ) + '?sslmode=require'
+
 
     app_instance.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://%s:%s@%s/%s' % (
         # ARGS.dbuser, ARGS.dbpass, ARGS.dbhost, ARGS.dbname
-        'manager@contextiapgs', 'supersecretpass', 'contextiapgs.postgres.database.azure.com', 'eventregistration'
-    ) + '?sslmode=require'
+        'u4jad2s2ntodk8',                                                       # User
+        'p24fa93112db5bb50939f49387dc576b7d98f032f71f83e4bc7590b16093a5067',    # Password
+        'ec2-34-198-109-48.compute-1.amazonaws.com:5432',                       # Host
+        'dfrce657vvkfhb'                                                        # dbname
+        )
 
 
     app_instance = extensions(app_instance)
     app_instance = register_blueprint(app_instance)
-    # authentication(app_instance)
+    authentication(app_instance)
     # CORS(app_instance)
 
     return app_instance
@@ -49,7 +58,7 @@ def extensions(app_instance):
     # mail.init_app(app_instance)
     # csrf.init_app(app_instance)
     db.init_app(app_instance)
-    # login_manager.init_app(app_instance)
+    login_manager.init_app(app_instance)
 
     # app.config.update({
     #     'RESTFUL_JSON':{
@@ -85,20 +94,20 @@ def register_blueprint(app_instance):
 
 
 
-# def authentication(app_instance):
-#     """
-#     Initialize the Flask-Login extension (mutates the app passed in).
-#
-#     :param app: Flask application instance
-#     :param user_model: Model that contains the authentication information
-#     :type user_model: SQLAlchemy model
-#     :return: None
-#     """
-#     login_manager.login_view = 'user.login'
-#
-#     @login_manager.user_loader
-#     def load_user(user_id):
-#         from blueprints.user.models import UserModel
-#         return UserModel.query.get(user_id)
-#
-#     return None
+def authentication(app_instance):
+    """
+    Initialize the Flask-Login extension (mutates the app passed in).
+
+    :param app: Flask application instance
+    :param user_model: Model that contains the authentication information
+    :type user_model: SQLAlchemy model
+    :return: None
+    """
+    login_manager.login_view = 'user.login'
+
+    @login_manager.user_loader
+    def load_user(user_id):
+        from blueprints.user.models import UserModel
+        return UserModel.query.get(user_id)
+
+    return None
